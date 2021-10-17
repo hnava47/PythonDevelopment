@@ -141,8 +141,17 @@ else:
 * null None
 * zero integer 0
 * zero float 0.0
-* empty string ""
+* empty string ''
 * empty list []
 * empty tuple ()
 * empty dict {}
 * empty set set()
+
+### Membership Operator In
+* using *in* to determine comparison within data
+```python
+vowels = 'aeiou'
+letter = 'o'
+letter in vowels
+TRUE
+```
