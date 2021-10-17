@@ -97,3 +97,10 @@ from urllib.request import urlopen
 ```
 * Import all code from the Python standard library module called *webbrowser* and *json*
 * Import only the urlopen function from the standard library module *urllib.request*
+
+### Comments
+* create comments with #
+```python
+# this is a comment line
+```
+* no multipline comment within python
