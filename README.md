@@ -61,8 +61,8 @@ Mutability
 * - subtraction
 * * multiplication
 * / floating-point division
-    * ```
-    x = 7/2
-    print(x)
-    3.5
-    ```
+```python
+x = 7/2
+print(x)
+3.5
+```
