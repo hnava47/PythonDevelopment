@@ -66,3 +66,16 @@ x = 7/2
 print(x)
 3.5
 ```
+* // integer (truncating) division
+```python
+x = 7//2
+print(x)
+3
+```
+* % modulus (remainder)
+```python
+x = 7%3
+print(x)
+1
+```
+* \*\* exponentiation
