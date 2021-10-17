@@ -1,6 +1,10 @@
 # PythonDevelopment
 
-Mutability
+#### Command Line Interface
+* python3
+* python3 -m pip install requests
+
+#### Mutability
 * Whether data value contained can be changed
 
 ## Basic Data Types
@@ -206,4 +210,3 @@ a   bc
 'Release the kraken! ' + 'No, wait!'
 'Release the Kraken! No wait!'
 ```
-
