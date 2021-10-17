@@ -201,3 +201,9 @@ A canal
 print('a\tbc')
 a   bc
 ```
+* Combine strings by using +
+```python
+'Release the kraken! ' + 'No, wait!'
+'Release the Kraken! No wait!'
+```
+
