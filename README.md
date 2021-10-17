@@ -155,3 +155,48 @@ letter = 'o'
 letter in vowels
 TRUE
 ```
+
+## Text Strings
+* Enclosed single of double quotes
+    * ''
+    * ""
+* Allows to place quotes within strings
+```python
+print("'Nay!'")
+'Nay!'
+```
+* Use three single or double quotes for multiline stings
+```python
+x = """test multiline
+string"""
+print(x)
+test multiline
+string
+```
+* Difference between print() and automatic echoing
+    * print() strips quotes from strings and prints their contents. Meant for human output
+    * Interactive interpreter prints the string with quotes and escape characters \n
+```python
+x = 'hello world'
+print(x)
+hello world
+x
+'hello world'
+```
+* String conversion > str()
+```python
+str(98.6)
+'98.6'
+```
+* \n > new line
+```python
+palindrome = 'A man, \nA plan, \nA canal'
+print(palindrome)
+A man,
+A plan,
+A canal
+```
+* \t > tab
+```python
+print('a\tbc')
+a   bc
