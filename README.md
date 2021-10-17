@@ -79,3 +79,21 @@ print(x)
 1
 ```
 * \*\* exponentiation
+
+### Variable Name Conditions
+* lowercase letters (a-z)
+* uppercase letters (a-z)
+* digits (0-9)
+* underscore (_)
+* case sensitive
+* cannot begin with digit
+* Python has reserved words (e.g. continue)
+
+### Libraries
+```Python
+import webbrowser
+import json
+from urllib.request import urlopen
+```
+* Import all code from the Python standard library module called *webbrowser* and *json*
+* Import only the urlopen function from the standard library module *urllib.request*
