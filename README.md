@@ -200,3 +200,4 @@ A canal
 ```python
 print('a\tbc')
 a   bc
+```
