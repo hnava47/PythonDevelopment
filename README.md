@@ -104,3 +104,45 @@ from urllib.request import urlopen
 # this is a comment line
 ```
 * no multipline comment within python
+
+## if, elif, else Comparisons
+* checks whether condition is a boolean **TRUE** value
+* Python expects consistent spacing (tab, space, etc.)
+```python
+if TRUE:
+    print("statement is true")
+else:
+    print("statement is false")
+```
+```python
+if TRUE:
+    print("statement is true")
+elif TRUE:
+    print("second statement is true")
+else:
+    print("statement is false")
+```
+
+### Comparison Operators
+* equality ==
+* inequality !=
+* less than <
+* less than or equal <=
+* greater than >
+* greater than or equal >=
+
+### Multiple Comparisons
+* and
+* or
+* not
+
+### Considered FALSE
+* boolean FALSE
+* null None
+* zero integer 0
+* zero float 0.0
+* empty string ""
+* empty list []
+* empty tuple ()
+* empty dict {}
+* empty set set()
