@@ -57,10 +57,10 @@ Mutability
     * key must be unique for dictionary
 
 ## Integer operations
-* + addition
-* - subtraction
-* * multiplication
-* / floating-point division
+* "+" addition
+* "-" subtraction
+* "*" multiplication
+* "/" floating-point division
 ```python
 x = 7/2
 print(x)
