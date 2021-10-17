@@ -3,7 +3,7 @@
 Mutability
 * Whether data value contained can be changed
 
-Basic Data Types:
+## Basic Data Types
 1. Boolean
     * bool
     * immutable
@@ -55,3 +55,14 @@ Basic Data Types:
     * {"game": "bingo", "dog": "dingo"}
     * {key: value, key: value}
     * key must be unique for dictionary
+
+## Integer operations
+* + addition
+* - subtraction
+* * multiplication
+* / floating-point division
+    * ```
+    x = 7/2
+    print(x)
+    3.5
+    ```
