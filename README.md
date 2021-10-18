@@ -62,7 +62,7 @@ x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x | y
 print(xy)
-{2, 3, 4, 5, 8}
+#{2, 3, 4, 5, 8}
 ```
 ```python
 # Intersection
@@ -70,7 +70,7 @@ x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x & y
 print(xy)
-{8}
+#{8}
 ```
 ```python
 # Differences
@@ -79,9 +79,9 @@ y = {3, 5, 8}
 xy = x - y
 yx = y - x
 print(xy)
-{2, 4}
+#{2, 4}
 print(yx)
-{3, 5}
+#{3, 5}
 ```
 ```python
 # Symmetrical Differences
@@ -89,7 +89,7 @@ x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x ^ y
 print(xy)
-{2, 3, 4, 5}
+#{2, 3, 4, 5}
 ```
 11. Frozen Set
     * frozenset
@@ -112,19 +112,19 @@ print(xy)
 ```python
 x = 7/2
 print(x)
-3.5
+#3.5
 ```
 * // integer (truncating) division
 ```python
 x = 7//2
 print(x)
-3
+#3
 ```
 * % modulus (remainder)
 ```python
 x = 7%3
 print(x)
-1
+#1
 ```
 * \*\* exponentiation
 
@@ -201,7 +201,7 @@ else:
 vowels = 'aeiou'
 letter = 'o'
 letter in vowels
-TRUE
+#TRUE
 ```
 
 ## Text Strings
@@ -211,15 +211,15 @@ TRUE
 * Allows to place quotes within strings
 ```python
 print("'Nay!'")
-'Nay!'
+#'Nay!'
 ```
 * Use three single or double quotes for multiline stings
 ```python
 x = """test multiline
 string"""
 print(x)
-test multiline
-string
+#test multiline
+#string
 ```
 * Difference between print() and automatic echoing
     * print() strips quotes from strings and prints their contents. Meant for human output
@@ -227,30 +227,116 @@ string
 ```python
 x = 'hello world'
 print(x)
-hello world
+#hello world
 x
-'hello world'
+#'hello world'
 ```
 * String conversion > str()
 ```python
 str(98.6)
-'98.6'
+#'98.6'
 ```
 * \n > new line
 ```python
 palindrome = 'A man, \nA plan, \nA canal'
 print(palindrome)
-A man,
-A plan,
-A canal
+#A man,
+#A plan,
+#A canal
 ```
 * \t > tab
 ```python
 print('a\tbc')
-a   bc
+#a   bc
 ```
 * Combine strings by using +
 ```python
 'Release the kraken! ' + 'No, wait!'
-'Release the Kraken! No wait!'
+#'Release the Kraken! No wait!'
 ```
+* Duplicate strings with *
+```python
+start = 'Na '*4 + '\n'
+middle = 'Hey '*3 + '\n'
+end = 'Goodbye'
+print(start + middle + end)
+#Na Na Na Na
+#Hey Hey Hey
+#Goodbye
+```
+* Get character with []
+    * Members go from 0 to length -1
+```python
+letters = 'aeiou'
+letters[0]
+#'a'
+letters[-1]
+#'u'
+letters[3]
+#'o'
+```
+* Get substring with slice [:]
+    * [*start* : *end* : *step*]
+```python
+letters = 'aeiou'
+# three last characters
+letters[-3:]
+#'iou'
+# every second character
+letters[::2]
+#'aiu'
+```
+* Get length with len()
+```python
+letters = 'aeiou'
+len(letters)
+#5
+```
+* Combine by using join()
+    * Collapses a list of strings into a single string
+    * *string.join(list)*
+```python
+letters = ['a', 'e', 'i', 'o', 'u']
+newStr = ''.join(letters)
+print(newStr)
+#aeiou
+secStr = ' '.join(letters)
+print(secStr)
+#a e i o u
+```
+* Substitute by using replace()
+    * *string.replace(old substring, new substring, instances)*
+    * If no instance count, replaces all instances
+    * Does not change initial string (immutable)
+```python
+setup = 'a duck goes into a bar'
+setup.replace('duck', 'cow')
+#'a cow goes into a bar'
+setup
+'a duck goes into a bar'
+```
+* Strip with strip()
+    * *strip()*, *lstrip()*, *rstrip*
+    * Common to strip ' ', '\t', '\n'
+```python
+world = '    earth    '
+world.strip(' ')
+#'earth'
+world.lstrip(' ')
+#'earth    '
+world.rstrip(' ')
+#'    earth'
+```
+* Search and select
+    * *find()*, *rfind()*, *index()*, *rindex()*, *startswith()*, *endswith()*
+    * If substring cannot be found, find() returns -1 and index() raises an exception
+    * If found, returns character count to substring
+```python
+poem = 'this is a poem sentence poem'
+poem.find('poem')
+#10
+poem.rfind('poem')
+#24
+```
+* Capitalize strings
+    * *string.capitalize()*, *string.title()*, *string.upper()*, *string.lower*, *string.swapcase()*
