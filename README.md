@@ -47,7 +47,46 @@
 10. Set
     * set
     * **mutable**
+    * {2, 4, 8}
     * set([2, 4, 8])
+    * Does not allow duplicates of elements
+    * Unordered and not indexed
+    * Perform following functions:
+        * Union |
+```python
+x = {2, 4, 8}
+y = {3, 5, 8}
+xy = x | y
+print(xy)
+{2, 3, 4, 5, 8}
+```
+        * Intersection &
+```python
+x = {2, 4, 8}
+y = {3, 5, 8}
+xy = x & y
+print(xy)
+{8}
+```
+        * Differences -
+```python
+x = {2, 4, 8}
+y = {3, 5, 8}
+xy = x - y
+yx = y - x
+print(xy)
+{2, 4}
+print(yx)
+{3, 5}
+```
+        * Symmetrical differences ^
+```python
+x = {2, 4, 8}
+y = {3, 5, 8}
+xy = x ^ y
+print(xy)
+{2, 3, 4, 5}
+```
 11. Frozen Set
     * frozenset
     * immutable
