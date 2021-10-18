@@ -340,3 +340,35 @@ poem.rfind('poem')
 ```
 * Capitalize strings
     * *string.capitalize()*, *string.title()*, *string.upper()*, *string.lower*, *string.swapcase()*
+    * These functions take no arguments
+* Alignment
+    * Layout alignment functions
+    * Center *string.center()*
+    * Left justify *string.ljust()*
+    * Right justify *string.rjust()*
+```python
+setup = 'a duck goes into a bar'
+setup.center(30)
+#'    a duck goes into a bar    '
+setup.ljust(30)
+#'a duck goes into a bar        '
+setup.rjust(30)
+#'        a duck goes into a bar'
+```
+* f-strings formatting
+    * letter f or F directly in front of initial quote
+    * Include variable names and expressions within curly brackets {} to get their value in string
+    * Can include expressions (*variable*:)
+        * Option to include fill character (default ' ') to pad the value string if it's shorter than minwidth
+        * Option alignment left < (default), right >, center ^
+```python
+name = 'Hector'
+f'{name} says hello'
+#'Hector says hello'
+f'{name.lower()} says hello'
+#'hector says hello'
+f'{name:10} says hello'
+#'Hector     says hello'
+f'{name:!>10} says hello'
+#'!!!!Hector says hello'
+```
