@@ -53,23 +53,27 @@
     * Unordered and not indexed
     * Perform following functions:
         * Union |
+        * Intersection &
+        * Differences -
+        * Symmetrical differences ^
 ```python
+# Union
 x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x | y
 print(xy)
 {2, 3, 4, 5, 8}
 ```
-        * \Intersection &
 ```python
+# Intersection
 x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x & y
 print(xy)
 {8}
 ```
-        * \Differences -
 ```python
+# Differences
 x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x - y
@@ -79,8 +83,8 @@ print(xy)
 print(yx)
 {3, 5}
 ```
-        * \Symmetrical differences ^
 ```python
+# Symmetrical Differences
 x = {2, 4, 8}
 y = {3, 5, 8}
 xy = x ^ y
