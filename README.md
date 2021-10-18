@@ -373,7 +373,6 @@ f'{name:!>10} says hello'
 #'!!!!Hector says hello'
 ```
 ## For and While Loops
-
 ## While Loops
 * Continue as long as condition is met
 ```python
@@ -429,4 +428,54 @@ while position < len(numbers):
 else: #no break called
     print('No even number found')
 #No even number found
+```
+## Iterate with For and In
+* Explicitly define iteration sequence using **for**
+```python
+word = 'thud'
+for letter in word:
+    print(letter)
+#t
+#h
+#u
+#d
+```
+* Cancel with **break**
+    * break in a for loop breaks out of the loop before defined iterations are complete
+```python
+word = 'thud'
+for letter in word:
+    if letter == 'u':
+        break
+    print(letter)
+#t
+#h
+```
+* Skip to **continue** and check break with **else**
+* Leverage number sequences with range()
+    * *range(start, stop, step)*
+    * If *start* is omitted, range begins at 0
+    * *Stop* is the only required value
+    * Default value for *step* is 1, but you can go backward with -1
+```python
+for x in range(0,3):
+    print(x)
+#0
+#1
+#2
+```
+```python
+for x in range(2, -1, -1):
+    print(x)
+#2
+#1
+#0
+```
+```python
+list = [2, 4, 8]
+for x in range(len(list)):
+    print(list[x])
+#2
+#4
+#8
 ```
