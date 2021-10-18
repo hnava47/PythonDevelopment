@@ -1,6 +1,6 @@
 # PythonDevelopment
 
-#### Command Line Interface
+#### Command Line Interface - Mac
 * python3
 * python3 -m pip install requests
 
@@ -60,7 +60,7 @@ xy = x | y
 print(xy)
 {2, 3, 4, 5, 8}
 ```
-        * Intersection &
+        * \Intersection &
 ```python
 x = {2, 4, 8}
 y = {3, 5, 8}
@@ -68,7 +68,7 @@ xy = x & y
 print(xy)
 {8}
 ```
-        * Differences -
+        * \Differences -
 ```python
 x = {2, 4, 8}
 y = {3, 5, 8}
@@ -79,7 +79,7 @@ print(xy)
 print(yx)
 {3, 5}
 ```
-        * Symmetrical differences ^
+        * \Symmetrical differences ^
 ```python
 x = {2, 4, 8}
 y = {3, 5, 8}
