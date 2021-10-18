@@ -27,7 +27,7 @@
 5. Text String
     * str
     * immutable
-    * "test string"
+    * 'test string'
 6. List
     * list
     * **mutable**
@@ -94,14 +94,15 @@ print(xy)
 11. Frozen Set
     * frozenset
     * immutable
-    * frozenset(['elsa', 'otto'])
+    * frozenset([2, 4, 8])
     * set which cannot be changed
 12. Dictionary
     * dict
     * **mutable**
-    * {"game": "bingo", "dog": "dingo"}
+    * {'game': 'bingo', 'dog': 'dingo'}
+    * dict([('game', 'bingo',), ('dog', 'dingo')])
     * {key: value, key: value}
-    * key must be unique for dictionary
+    * Unordered collection with key and value elements
 
 ## Integer operations
 * \+ addition
@@ -150,7 +151,7 @@ from urllib.request import urlopen
 ```python
 # this is a comment line
 ```
-* no multipline comment within python
+* no multi-line comment within python
 
 ## if, elif, else Comparisons
 * checks whether condition is a boolean **TRUE** value
@@ -195,7 +196,7 @@ else:
 * empty set set()
 
 ### Membership Operator In
-* using *in* to determine comparison within data
+* using *in* to determine comparison within data object
 ```python
 vowels = 'aeiou'
 letter = 'o'
