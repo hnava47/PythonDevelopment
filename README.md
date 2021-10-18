@@ -372,3 +372,61 @@ f'{name:10} says hello'
 f'{name:!>10} says hello'
 #'!!!!Hector says hello'
 ```
+## For and While Loops
+
+## While Loops
+* Continue as long as condition is met
+```python
+count = 1
+while count <= 5:
+    print(count)
+    count += 1
+#1
+#2
+#3
+#4
+#5
+```
+* Cancel with **break**
+    * To loop until something occurs, but not sure when that will happen, create infinite loop with break statement
+```python
+while True:
+    stuff = input('String to capitalize [type q to quit]: ')
+    if stuff == 'q':
+        break
+    print(stuff.capitalize())
+#String to capitalize [type q to quit]: hello
+#Hello
+#String to capitalize [type q to quit]: q
+```
+* Skip ahead with **continue**
+    * When you don't want to break the loop, but to just skip to next iteration
+```python
+while True:
+    value = input('Integer, please [q to quit]: ')
+    if value == 'q':
+        break
+    number = int(value)
+    if number % 2 == 0:
+        continue
+    print(number, 'squared is', number*number)
+#Integer, please [q to quit]: 1
+#1 squared is 1
+#Integer, please [q to quit]: 2
+#Integer, please [q to quit]: q
+```
+* Check break use with **else**
+    * If while loop ends normally (no break call), control passes to an optional **else**
+```python
+numbers = [1, 3, 5]
+position = 0
+while position < len(numbers):
+    number = numbers[position]
+    if number % 2 == 0:
+        print('Found even number', number)
+        break
+    position += 1
+else: #no break called
+    print('No even number found')
+#No even number found
+```
