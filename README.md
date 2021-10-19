@@ -38,6 +38,8 @@
     * tuple
     * immutable
     * (2, 4, 8)
+    * tuple([2, 4, 8])
+        * tuple() function takes one argument
 8. Bytes
     * bytes
     * immutable
@@ -482,4 +484,56 @@ for x in range(len(list)):
 #2
 #4
 #8
+```
+## Tuples and Lists
+### Tuples
+* Create with commas and ()
+* *('Groucho')* is considered a string. Need to include comma to make it a tuple > ('Groucho',)
+```python
+empty_tuple = ()
+#()
+one_marx = ('Groucho',)
+#('Groucho',)
+marx_tuple = ('Groucho', 'Chico', 'Harpo')
+#('Groucho', 'Chico', 'Harpo')
+```
+* Tuples allow you to assign multiple variables at once (unpacking)
+```python
+marx_tuple = ('Groucho', 'Chico', 'Harpo')
+a, b, c = marx_tuple
+a
+#'Groucho'
+b
+#'Chico'
+c
+#'Harpo'
+```
+* Convert a list into a tuple using tuple()
+```python
+marx_list = ['Groucho', 'Chico', 'Harpo']
+tuple(marx_list)
+#('Groucho', 'Chico', 'Harpo')
+```
+* Combine tuples using +
+```python
+('Groucho',) + ('Chico', 'Harpo')
+#('Groucho', 'Chico', 'Harpo')
+```
+* Duplicate items with *
+```python
+('yada',) * 3
+#('yada', 'yada', 'yada')
+```
+* Can compare as well as iterate with for and in
+* You cannot modify a tuple! Tuples are immutable
+    * You can't change the existing object
+    * You can create a new object and concatenate tuples
+```python
+t1 = ('Fee', 'Fie', 'Foe')
+t2 = ('Flop',)
+id(t1)
+#4409105136
+t1 += t2
+id(t1)
+#4408702160
 ```
