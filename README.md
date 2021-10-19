@@ -32,6 +32,8 @@
     * list
     * **mutable**
     * [2, 4, 8]
+    * list([2, 4, 8])
+        * list() function takes one argument
 7. Tuple
     * tuple
     * immutable
@@ -49,6 +51,7 @@
     * **mutable**
     * {2, 4, 8}
     * set([2, 4, 8])
+        * set() function takes one argument
     * Does not allow duplicates of elements
     * Unordered and not indexed
     * Perform following functions:
@@ -101,6 +104,7 @@ print(xy)
     * **mutable**
     * {'game': 'bingo', 'dog': 'dingo'}
     * dict([('game', 'bingo',), ('dog', 'dingo')])
+        * dict() function takes one argument
     * {key: value, key: value}
     * Unordered collection with key and value elements
 
