@@ -537,3 +537,44 @@ t1 += t2
 id(t1)
 #4408702160
 ```
+### Lists
+* Create with []
+    * Tracks objects by their order
+    * Lists are mutable and can change
+    * Same value can occur more than once in a list
+```python
+empty_list = []
+weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+first_names = ['John', 'Terry', 'Terry', 'Michael']
+```
+* Create or convert with list()
+* list() converts other iterable data types to lists
+```python
+list('cat')
+#['c', 'a', 't']
+list(['cat'])
+#['cat']
+```
+* Create lits from string using split()
+```python
+date = '9/19/2019'
+date.split('/')
+#['9', '19', '2019']
+```
+* Get item by **[offset]**
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+marxes[0]
+#'Groucho'
+marxes[1]
+#'Chico'
+marxes[2]
+#'Harpo'
+marxes [-1]
+#'Harpo'
+marxes[-2]
+#'Chico'
+marxes[-3]
+#'Groucho'
+```
+* Get items with **slice**
