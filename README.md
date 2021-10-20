@@ -12,14 +12,17 @@
     * bool
     * immutable
     * True/False
+    * Primitive data structure
 2. Integer
     * int
     * immutable
     * 3
+    * Primitive data structure
 3. Floating Point
     * float
     * immutable
     * 3.45
+    * Primitive data structure
 4. Complex
     * complex
     * immutable
@@ -28,32 +31,38 @@
     * str
     * immutable
     * 'test string'
+    * Primitive data structure
 6. List
     * list
     * **mutable**
     * [2, 4, 8]
     * list([2, 4, 8])
         * list() function takes one argument
+    * In-built non-primitive data structure
 7. Tuple
     * tuple
     * immutable
     * (2, 4, 8)
     * tuple([2, 4, 8])
         * tuple() function takes one argument
+    * In-built non-primitive data structure
 8. Bytes
     * bytes
     * immutable
     * b'ab/xff'
+    * In-built non-primitive data structure
 9. ByteArray
     * bytearray
     * **mutable**
     * bytearray(...)
+    * In-built non-primitive data structure
 10. Set
     * set
     * **mutable**
     * {2, 4, 8}
     * set([2, 4, 8])
         * set() function takes one argument
+    * In-built non-primitive data structure
     * Does not allow duplicates of elements
     * Unordered and not indexed
     * Perform following functions:
@@ -101,6 +110,7 @@ print(xy)
     * immutable
     * frozenset([2, 4, 8])
     * set which cannot be changed
+    * In-built non-primitive data structure
 12. Dictionary
     * dict
     * **mutable**
@@ -109,6 +119,7 @@ print(xy)
         * dict() function takes one argument
     * {key: value, key: value}
     * Unordered collection with key and value elements
+    * In-built non-primitive data structure
 
 ## Integer operations
 * \+ addition
@@ -663,6 +674,7 @@ marxes
     * append() adds value to end of list
     * pop() removes value from end of list
 * FIFO (first in first out) - using *append()* and *pop(0)*
+    * Also referred to as **Queue**
     * append() adds value to end of list
     * pop(0) removes value from beginning of list
 * Delete all items with *clear()*
