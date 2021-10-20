@@ -578,7 +578,7 @@ marxes[-3]
 #'Groucho'
 ```
 * Get items with *slice*
-* *[start\:end\:steps]*
+* [*start*:*end*:*steps*]
 ```python
 marxes = ['Groucho', 'Chico', 'Harpo']
 marxes[:2]
