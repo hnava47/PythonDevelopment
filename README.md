@@ -597,7 +597,7 @@ marxes.append('Zeppo')
 marxes
 #['Groucho', 'Chico', 'Harpo', 'Zeppo']
 ```
-* Add an item by offset with insert()
+* Add an item by offset with *insert()*
 ```python
 marxes = ['Groucho', 'Chico', 'Harpo']
 marxes.insert(2, 'Gummo')
