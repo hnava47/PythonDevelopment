@@ -578,3 +578,231 @@ marxes[-3]
 #'Groucho'
 ```
 * Get items with **slice**
+* *[start:end:steps]*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+marxes[:2]
+#['Groucho', 'Chico']
+marxes[::-2]
+#['Harpo', 'Groucho']
+marxes[::-1]
+#['Harpo', 'Chico', 'Groucho']
+```
+* Difference between *list[::-1]* and *list.reverse()*
+    * reverse() function changes the list but doesn't return the value
+* Add an item to the end with *append()*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+marxes.append('Zeppo')
+marxes
+#['Groucho', 'Chico', 'Harpo', 'Zeppo']
+```
+* Add an item by offset with insert()
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+marxes.insert(2, 'Gummo')
+marxes
+#['Groucho', 'Chico', 'Gummo', 'Harpo']
+```
+* Combine lists by using *extend()* or *+*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+others = ['Gummo', 'Karl']
+marxes.extend(others)
+marxes
+#['Groucho', 'Chico', 'Harpo', 'Gummo', 'Karl']
+
+marxes = ['Groucho', 'Chico', 'Harpo']
+others = ['Gummo', 'Karl']
+marxes += others
+marxes
+#['Groucho', 'Chico', 'Harpo', 'Gummo', 'Karl']
+```
+* Change an item by *[offset]*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+marxes[2] = 'Wanda'
+marxes
+#['Groucho', 'Chico', 'Wanda']
+```
+* Change items with a slice
+```python
+numbers = [1, 2, 3, 4]
+numbers[1:3] = [8, 9]
+numbers
+#[1, 8, 9, 4]
+```
+* Delete an item by offset with *del* before reference
+```python
+marxes = ['Groucho', 'Chico', 'Harpo', 'Karl']
+del marxes [-1]
+marxes
+#['Groucho', 'Chico', 'Harpo']
+```
+* Delete an item by value with *remove()*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo', 'Karl']
+marxes.remove('Karl')
+marxes
+#['Groucho', 'Chico', 'Harpo']
+```
+* Get an item by offset and delete it with *pop()*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo']
+marxes.pop()
+#'Zeppo'
+marxes
+#['Groucho', 'Chico', 'Harpo']
+marxes.pop(1)
+#'Chico'
+marxes
+#['Groucho', 'Harpo']
+```
+* LIFO (last in first out) - using *append()* and *pop()*
+    * append() adds value to end of list
+    * pop() removes value from end of list
+* FIFO (first in first out) - using *append()* and *pop(0)*
+    * append() adds value to end of list
+    * pop(0) removes value from beginning of list
+* Delete all items with *clear()*
+```python
+work_quotes = ['Working hard', 'Quick question', 'Number one']
+work_quotes.clear()
+work_quotes
+#[]
+```
+* Find an item's offset by value with *index()*
+    * If there are multiple values, index() returns the first value
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+marxes.index('Chico')
+#1
+simpsons = ['Lisa', 'Bart', 'Marge', 'Homer', 'Bart']
+simpsons.index('Bart')
+#1
+```
+* Test for a value with *in*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+'Groucho' in marxes
+#True
+'Bob' in marxes
+#False
+```
+* Count occurrences of a value with *count()*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo', 'Groucho']
+marxes.count('Groucho')
+#2
+marxes.count('Bob')
+#0
+```
+* Reorder items with *sort()* or *sorted()*
+    * List method sort() sorts the list itself, in place
+    * function sorted() returns a sorted **copy** of the list
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+sorted(marxes)
+#['Chico', 'Groucho', 'Harpo']
+marxes.sort()
+marxes
+#['Chico', 'Groucho', 'Harpo']
+```
+* Get length with *len()*
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+len(marxes)
+#3
+```
+* Assign with =
+    * Changing the list in one place also changes in the other
+```python
+a = [1, 2, 3]
+b = a
+b
+#[1, 2, 3]
+a[0] = 'surprise'
+a
+#['surprise, 2, 3]
+b
+#['surprise', 2, 3]
+```
+* Create independent copy using *copy()*, *list()*, or slice
+    * This does not factor for imbedded lists
+```python
+a = [1, 2, 3]
+b = a.copy()
+c = list(a)
+d = a[:]
+
+a[0] = 0
+a
+#[0, 2, 3]
+b
+#[1, 2, 3]
+c
+#[1, 2, 3]
+d
+#[1, 2, 3]
+```
+* Create independent copy of everything with *deepcopy()*
+```python
+a = [1, 2, [8, 9]]
+b = a.copy()
+a[2][0] = 10
+
+a = [1, 2, [10, 9]]
+a
+#[1, 2, [10, 9]]
+b
+#[1, 2, [10, 9]]
+
+import copy as c
+a = [1, 2, [8, 9]]
+c = c.deepcopy(a)
+
+a = [1, 2, [10, 9]]
+a
+#[1, 2, [10, 9]]
+c
+#[1, 2, [8, 9]]
+```
+* Create a list with a comprehension
+    * [expression for item in iterable]
+    * [expression for item in iterable if condition]
+```python
+numberList = [number for number in range(1, 6)]
+numberList
+#[1, 2, 3, 4, 5]
+
+aList = [number for number in range(1, 6) if number % 2 ==1]
+aList
+#[1, 3, 5]
+
+rows = [num for num in range(1, 4)]
+cols = [num for num in range(1, 3)]
+cells = [(row, col) for row in rows for col in cols]
+for cell in cells:
+        print(cell)
+#(1, 1)
+#(1, 2)
+#(2, 1)
+#(2, 2)
+#(3, 1)
+#(3, 2)
+
+for row, col in cells:
+    print(row, col)
+#1 1
+#1 2
+#2 1
+#2 2
+#3 1
+#3 2
+```
+* Tuples versus lists
+    * Tuples cannot be modified (append(), insert(), etc.) after creation (immutable)
+    * Tuples use less space
+    * You can't clobber tuple items by mistake
+    * You can use tuples as dictionary keys
+    * Named tuples can be a simple alternative to objects
