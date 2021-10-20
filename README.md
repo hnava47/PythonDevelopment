@@ -508,13 +508,13 @@ b
 c
 #'Harpo'
 ```
-* Convert a list into a tuple using tuple()
+* Convert a list into a tuple using *tuple()*
 ```python
 marx_list = ['Groucho', 'Chico', 'Harpo']
 tuple(marx_list)
 #('Groucho', 'Chico', 'Harpo')
 ```
-* Combine tuples using +
+* Combine tuples using *+*
 ```python
 ('Groucho',) + ('Chico', 'Harpo')
 #('Groucho', 'Chico', 'Harpo')
@@ -547,7 +547,7 @@ empty_list = []
 weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 first_names = ['John', 'Terry', 'Terry', 'Michael']
 ```
-* Create or convert with list()
+* Create or convert with *list()*
 * list() converts other iterable data types to lists
 ```python
 list('cat')
@@ -555,13 +555,13 @@ list('cat')
 list(['cat'])
 #['cat']
 ```
-* Create lits from string using split()
+* Create lits from string using *split()*
 ```python
 date = '9/19/2019'
 date.split('/')
 #['9', '19', '2019']
 ```
-* Get item by **[offset]**
+* Get item by *[offset]*
 ```python
 marxes = ['Groucho', 'Chico', 'Harpo']
 marxes[0]
@@ -577,8 +577,8 @@ marxes[-2]
 marxes[-3]
 #'Groucho'
 ```
-* Get items with **slice**
-* *[start:end:steps]*
+* Get items with *slice*
+* *[start\:end\:steps]*
 ```python
 marxes = ['Groucho', 'Chico', 'Harpo']
 marxes[:2]
