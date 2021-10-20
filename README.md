@@ -570,7 +570,7 @@ marxes[1]
 #'Chico'
 marxes[2]
 #'Harpo'
-marxes [-1]
+marxes[-1]
 #'Harpo'
 marxes[-2]
 #'Chico'
