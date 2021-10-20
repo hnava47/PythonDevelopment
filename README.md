@@ -659,6 +659,7 @@ marxes
 #['Groucho', 'Harpo']
 ```
 * LIFO (last in first out) - using *append()* and *pop()*
+    * Also referred to as **Stack**
     * append() adds value to end of list
     * pop() removes value from end of list
 * FIFO (first in first out) - using *append()* and *pop(0)*
