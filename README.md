@@ -293,7 +293,7 @@ letters[3]
 #'o'
 ```
 * Get substring with slice [:]
-    * [*start* : *end* : *step*]
+    * _[start:end:step]_
 ```python
 letters = 'aeiou'
 # three last characters
@@ -912,8 +912,8 @@ list(signals.items())
 len(signals)
 #3
 ```
-* Combine dictionaries with _{**a, **b}_ test
-    * Can pass more than two dictionaries _{**a, **b, **c}_ test
+* Combine dictionaries with _{**a, **b}_
+    * Can pass more than two dictionaries _{**a, **b, **c}_
     * If both dictionaries have the same key, the value from the second dictionary wins
 ```python
 first = {
