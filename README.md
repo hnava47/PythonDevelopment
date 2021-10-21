@@ -912,8 +912,8 @@ list(signals.items())
 len(signals)
 #3
 ```
-* Combine dictionaries with _{**a, **b}_
-    * Can pass more than two dictionaries _{**a, **b, **c}_
+* Combine dictionaries with _{**a, **b}_ test
+    * Can pass more than two dictionaries _{**a, **b, **c}_ test
     * If both dictionaries have the same key, the value from the second dictionary wins
 ```python
 first = {
