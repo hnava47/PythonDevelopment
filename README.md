@@ -1030,3 +1030,147 @@ vowel_counts = {letter: word.count(letter) for letter in set(word) if letter in 
 vowel_counts
 #{'o': 4, 'i': 1, 'a': 2, 'e': 1}
 ```
+### Sets
+* Similar to a dictionary without the values. The elements of a set must be unique
+    * Sets can use union and intersection operators
+    * Sets are unordered
+    * Cannot create empty set with *{}* as this creates an empty dict. Must use *set()*
+* Create with *set()*
+```python
+empty_set = set()
+empty_set
+#set()
+
+even_numbers = {0, 2, 4, 6, 8}
+even_numbers
+#{0, 2, 4, 6, 8}
+```
+* Convert with *set()*
+```python
+set('letters')
+#{'l', 'r', 't', 's', 'e'}
+
+set([1, 4, 6, 5, 6])
+#{1, 4, 5, 6}
+
+set((1, 4, 6, 5))
+#{1, 4, 5, 6}
+
+set({'apple': 'red', 'orange': 'orange', 'cherry': 'red'})
+#{'apple', 'cherry', 'orange'}
+```
+* Get length with *len()*
+```python
+reindeer = set(['Dasher', 'Dancer', 'Prancer', 'Mason-Dixon'])
+len(reindeer)
+#4
+```
+* Add an item with *add()*
+```python
+s = set((1, 2, 3))
+s
+#{1, 2, 3}
+s.add(4)
+s
+#{1,2, 3, 4}
+```
+* Delete an item with *remove()*
+```python
+s = set((1, 2, 3))
+s.remove(3)
+s
+#{1, 2}
+```
+* Iterate with *for* and *in*
+```python
+furniture = set(('sofa', 'ottoman', 'table'))
+for piece in furniture:
+    print(piece)
+#table
+#ottoman
+#sofa
+```
+* Combinations and operators
+    * Intersection (members common to both sets) with *&* or *intersection()*
+    * Union (members of either set) with | or *union()*
+    * Difference (members of the first set but not the second) with *-* or *difference()*
+    * Symmetric difference (items in one set or the other, but not both) with *^* or *symmetric_difference()*
+    * Subset (all members of the first set are also in the second set) with *<=* or *issubset()*
+    * Proper subset (the second set needs to have all the members of the first and more) with *<*
+    * Superset (all members of the second set are also members of the first) with *>=* or *issuperset()*
+    * Proper superset (the first set has all members of the second, and more) with *>*
+```python
+a = {1, 2}
+b = {2, 3}
+
+a & b
+#{2}
+
+a.intersection(b)
+#{2}
+
+a | b
+#{1, 2, 3}
+
+a.union(b)
+#{1, 2, 3}
+
+a - b
+#{1}
+
+a.difference(b)
+#{1}
+
+a ^ b
+#{1, 3}
+
+a.symmetric_difference(b)
+#{1, 3}
+
+a <= b
+#False
+
+a.issubset(b)
+#False
+
+a >= b
+#False
+
+a.issuperset(b)
+#False
+```
+* Create an immutable set with *frozenset()*
+    * Set that cannot be changed
+```python
+frozenset([3, 2, 1])
+#frozenset({1, 2, 3})
+
+frozenset(set([2, 1, 3]))
+#frozenset({1, 2, 3})
+
+frozenset({3, 1, 2})
+#frozenset({1, 2, 3})
+
+frozenset((2, 3, 1))
+#frozenset({1, 2, 3})
+```
+* Big data structures
+    * Lists within a list
+    * Lists within a tuple
+    * Lists within a dictionary
+```python
+marxes = ['Groucho', 'Chico', 'Harpo']
+pythons = ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin']
+stooges = ['Moe', 'Curly', 'Larry']
+
+tuple_of_lists = marxes, pythons, stooges
+tuple_of_lists
+#(['Groucho', 'Chico', 'Harpo'], ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin'], ['Moe', 'Curly', 'Larry'])
+
+list_of_lists = [marxes, pythons, stooges]
+list_of_lists
+#[['Groucho', 'Chico', 'Harpo'], ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin'], ['Moe', 'Curly', 'Larry']]
+
+dict_of_lists = {'Marxes': marxes, 'Pythons': pythons, 'Stooges': stooges}
+#{'Marxes': ['Groucho', 'Chico', 'Harpo'], 'Pythons': ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin'], 'Stooges': ['Moe', 'Curly', 'Larry']}
+```
