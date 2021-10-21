@@ -818,4 +818,215 @@ for row, col in cells:
     * Tuples use less space
     * You can't clobber tuple items by mistake
     * You can use tuples as dictionary keys
-    * Named tuples can be a simple alternative to objects
+    * Named tuples can be a simple alternative to objects`
+## Dictionaries and Sets
+### Dictionaries
+* Specify unique *key* to associate with each *value*
+* Create with *{}*
+```python
+empty_dict = {}
+empty_dict
+#{}
+
+bierce = {
+    'day': 'A period of twenty-four hours, mostly misspent',
+    'positive': 'Mistaken at the top of ones voice',
+    'misfortune': 'The kind of fortune that never misses'
+}
+bierce
+#{'day': 'A period of twenty-four hours, mostly misspent', 'positive': 'Mistaken at the top of ones voice', 'misfortune': 'The kind of fortune that never misses'}
+```
+* Create with *dict()*
+    * Limitation of this method is the argument names need to be legal variable names (no spaces, no reserved words)
+```python
+acme_customer = dict(first='Wile', middle='E', last='Coyote')
+acme_customer
+#{'first': 'Wile', 'middle': 'E', 'last': 'Coyote'}
+```
+* Convert with *dict()*
+```python
+lol = [['a', 'b'], ['c', 'd'], ['e', 'f']]
+dict(lol)
+#{'a': 'b', 'c': 'd', 'e': 'f'}
+
+los = ['ab', 'cd', 'ef']
+dict(los)
+#{'a': 'b', 'c': 'd', 'e': 'f'}
+```
+* Add or change an item by *[key]*
+```python
+pythons = {
+    'Chapman': 'Graham',
+    'Cleese': 'John',
+    'Idle': 'Eric'
+}
+pythons['Gilliam'] = 'Gerry'
+pythons['Idle'] = 'Terry'
+pythons
+#{'Chapman': 'Graham', 'Cleese': 'John', 'Idle': 'Terry', 'Gilliam': 'Gerry'}
+```
+* Get an item by *[key]* or with *get()*
+    * If the key is not present in the dictionary, using *[key]* will return error
+    * Avoid error by using *in* or *get()*
+    * *get(key to search, displayed message if not returned)*
+    * If no message is provided with *get()* and key is not present in dict, then method returns **None**
+```python
+pythons['Chapman']
+#'Graham'
+
+'hector' in pythons
+#False
+
+pythons.get('hector', 'No value')
+#'No value'
+```
+* Get all keys with *keys()*
+    * Python3 returns dict_keys() which is an iterable view
+    * Does not create and store a list
+    * To create a store a list, use *list(dict.keys())*
+```python
+signals = {
+    'green': 'go',
+    'yellow': 'go faster',
+    'red': 'stop'
+}
+signals.keys()
+#dict_keys(['green', 'yellow', 'red'])
+
+list(signals.keys())
+#['green', 'yellow', 'red']
+```
+* Get all values with *values()*
+```python
+list(signals.values())
+#['go', 'go faster', 'stop']
+```
+* Get all key-value pairs with *items()*
+```python
+list(signals.items())
+#[('green', 'go'), ('yellow', 'go faster'), ('red', 'stop')]
+```
+* Get length with *len()*
+    * Counts number of keys
+```python
+len(signals)
+#3
+```
+* Combine dictionaries with *{**a, **b}*
+    * Can pass more than two dictionaries *{**a, **b, **c}*
+    * If both dictionaries have the same key, the value from the second dictionary wins
+```python
+first = {
+    'a': 'agony',
+    'b': 'bliss'
+}
+second = {
+    'b': 'bagels',
+    'c': 'candy'
+}
+
+{**first, **second}
+#{'a': 'agony', 'b': 'bagels', 'c': 'candy'}
+```
+* Combine dictionaries with *update()*
+    * Copies the keys and values from one dictionary to the other
+    * If both dictionaries have the same key, the value from the second dictionary wins
+```python
+first.update(second)
+first
+#{'a': 'agony', 'b': 'bagels', 'c': 'candy'}
+```
+* Delete an item by key with *del*
+```python
+del first['a']
+first
+#{'b': 'bagels', 'c': 'candy'}
+```
+* Get an item by key and delete it with *pop()*
+    * Combines *get()* and *del*
+    * If key exists, it returns the matching value and deletes the key-value pair
+    * If key doesn't exist, it raises an exception
+```python
+first.pop('b')
+#'bagels'
+first
+#{'c': 'candy'}
+```
+* Delete all items with *clear()*
+```python
+pythons.clear()
+pythons
+#{}
+```
+* Assign with *=* versus copy with *copy()*
+    * As with lists, assign with *=* will reflect any changes made to original dict
+    * With *copy()*, a separate ID is created
+```python
+test1 = {
+    'a': 'hand',
+    'b': 'made'
+}
+
+test2 = test1
+id(test1)
+#4413656192
+id(test2)
+#4413656192
+
+test3 = test1.copy()
+id(test3)
+#4413656512
+```
+* Copy everything with *deepcopy()*
+* Compare dictionaries with *==*
+    * Python compares the keys and values one by one. If a key's value is not the same, returns *False*
+```python
+a = {1: [1, 2], 2: [1], 3: [1]}
+b = {1: [1, 1], 2: [1], 3: [1]}
+a == b
+#False
+```
+* Iterate with *for* and *in*
+    * Can iterate over the keys *keys()*, values *values()*, or both *items()*
+```python
+first = {'a': 'agony', 'b': 'bagels', 'c': 'candy'}
+for key in first.keys():
+    print(key)
+#a
+#b
+#c
+
+for value in first.values():
+    print(value)
+#agony
+#bagels
+#candy
+
+for item in first.items():
+    print(item)
+#('a', 'agony')
+#('b', 'bagels')
+#('c', 'candy')
+
+#unpacking
+for item, value in first.items():
+    print(item, value)
+#a agony
+#b bagels
+#c candy
+```
+* Dictionary comprehensions
+    * *{key_expression: value_expression for expression in iterable}*
+    * *{key_expression: value_expression for expression in iterable if condition}*
+```python
+word = 'letters'
+letter_counts = {letter: word.count(letter) for letter in word}
+letter_counts
+#{'l': 1, 'e': 2, 't': 2, 'r': 1, 's': 1}
+
+vowels = 'aeiou'
+word = 'onomatopoeia'
+vowel_counts = {letter: word.count(letter) for letter in set(word) if letter in vowels}
+vowel_counts
+#{'o': 4, 'i': 1, 'a': 2, 'e': 1}
+```
