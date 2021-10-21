@@ -1174,3 +1174,68 @@ list_of_lists
 dict_of_lists = {'Marxes': marxes, 'Pythons': pythons, 'Stooges': stooges}
 #{'Marxes': ['Groucho', 'Chico', 'Harpo'], 'Pythons': ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin'], 'Stooges': ['Moe', 'Curly', 'Larry']}
 ```
+## Functions
+* Can do two things with a function
+    * *Define* it, with zero or more parameters
+    * *Call* it, and get zero or more results
+* Define a function with *def*
+    * Function names have the same rules as variables (must start with a letter or _ and contain only letters, number, or _)
+```python
+def do_nothing():
+    pass
+```
+* Call a function with parentheses
+    * When you mak a call, Python runs the code inside its definition
+```python
+def make_a_sound():
+    print('quack')
+
+make_a_sound()
+#quack
+```
+```python
+def agree():
+    return True
+
+if agree():
+    print('Splendid!')
+else:
+    print('That was unexpected.')
+
+#Splendid!
+```
+* Arguments and parameters
+    * Parameters are placed within parentheses of defined function
+    * Function can take any number of input arguments (including zero) of any type
+    * Function can return any number of output results (also including zero) of any type
+    * If function doesn't call *return* explicitly, the caller gets the result *None* (not the same as *False*)
+    * Called arguments outside of the function, but parameters inside
+    * For below function echo() was called with the argument string 'Rumplestiltskin', which was copied within echo() to the parameter *anything* and then returned to the caller
+```python
+def echo(anything):
+    return anything + ' ' + anything
+
+echo('Rumplestiltskin')
+#'Rumplestiltskin Rumplestiltskin'
+```
+* Positional and keyword arguments
+    * Values are copied to their corresponding parameters in order
+    * Need to remember the meaning of each position
+        * If we place the argument in the wrong place, the function will not work as intended
+    * If function called with both positional and keyword arguments, the positional arguments need to come first
+```python
+def menu(wine, entree, dessert):
+    return {'wine': wine, 'entree': entree, 'dessert': dessert}
+
+menu('chardonnay', 'chicken', 'cake')
+#{'wine': 'chardonnay', 'entree': 'chicken', 'dessert': 'cake'}
+
+menu('beef', 'bagel', 'bordeaux')
+#{'wine': 'beef', 'entree': 'bagel', 'dessert': 'bordeaux'}
+
+menu(entree='beef', dessert='bagel', wine='bordeaux')
+#{'wine': 'bordeaux', 'entree': 'beef', 'dessert': 'bagel'}
+
+menu('frontenac', dessert='flan', entree='fish')
+#{'wine': 'frontenac', 'entree': 'fish', 'dessert': 'flan'}
+```
