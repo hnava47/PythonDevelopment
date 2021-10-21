@@ -819,5 +819,3 @@ for row, col in cells:
     * You can't clobber tuple items by mistake
     * You can use tuples as dictionary keys
     * Named tuples can be a simple alternative to objects
-
-test
