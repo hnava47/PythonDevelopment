@@ -1,8 +1,60 @@
-# PythonDevelopment
+<div id="top"></div>
+
+![Python][python-shield]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- Project Logo -->
+<br/>
+<div align="center">
+    <img src="assets/images/readmelogo.png" alt="Logo" width="80" height="80">
+    <h1 align="center">Python Development</h1>
+</div>
+
+<!-- Table of Contents -->
+<details>
+    <summary><span style="font-size: 25px;">Table of Contents</span></summary>
+    <ol>
+        <li><a href="#basic-data-types">Basic Data Types</a></li>
+        <li><a href="#integer-operators">Integer Operators</a></li>
+        <ul>
+            <li><a href="#variable-name-conditions">Variable Name Conditions</a></li>
+            <li><a href="#libraries">Libraries</a></li>
+        </ul>
+        <li><a href="#if-elif-else-comparisons">if, elif, else Comparisons</a></li>
+        <ul>
+            <li><a href="#comparison-operators">Comparison Operators</a></li>
+            <li><a href="#multiple-comparisons">Multiple Comparisons</a></li>
+            <li><a href="#considered-false">Considered False</a></li>
+            <li><a href="#membership-operator-in">Membership Operator In</a></li>
+        </ul>
+        <li><a href="#text-strings">Text Strings</a></li>
+        <li><a href="#for-and-while-loops">For and While Loops</a></li>
+        <ul>
+            <li><a href="#while-loops">While Loops</a></li>
+            <li><a href="#iterate-with-for-and-in">Iterate with For and In</a></li>
+        </ul>
+        <li><a href="#tuples-and-lists">Tuples and Lists</a></li>
+        <ul>
+            <li><a href="#tuples">Tuples</a></li>
+            <li><a href="#lists">Lists</a></li>
+        </ul>
+        <li><a href="#dictionaries-and-sets">Dictionaries and Sets</a></li>
+        <ul>
+            <li><a href="#dictionaries">Dictionaries</a></li>
+            <li><a href="#sets">Sets</a></li>
+        </ul>
+        <li><a href="#functions">Functions</a></li>
+    </ol>
+</details>
+<br/>
 
 #### Command Line Interface - Mac
-* python3
-* python3 -m pip install requests
+```bash
+python3
+```
+```bash
+python3 -m pip install requests
+```
 
 #### Mutability
 * Whether data value contained can be changed
@@ -121,6 +173,8 @@ print(xy)
     * Unordered collection with key and value elements
     * In-built non-primitive data structure
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Integer operations
 * \+ addition
 * \- subtraction
@@ -144,6 +198,8 @@ print(x)
 #1
 ```
 * \*\* exponentiation
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Variable Name Conditions
 * lowercase letters (a-z)
@@ -390,7 +446,7 @@ f'{name:!>10} says hello'
 #'!!!!Hector says hello'
 ```
 ## For and While Loops
-## While Loops
+### While Loops
 * Continue as long as condition is met
 ```python
 count = 1
@@ -446,7 +502,7 @@ else: #no break called
     print('No even number found')
 #No even number found
 ```
-## Iterate with For and In
+### Iterate with For and In
 * Explicitly define iteration sequence using **for**
 ```python
 word = 'thud'
@@ -1239,3 +1295,7 @@ menu(entree='beef', dessert='bagel', wine='bordeaux')
 menu('frontenac', dessert='flan', entree='fish')
 #{'wine': 'frontenac', 'entree': 'fish', 'dessert': 'flan'}
 ```
+<!-- MARKDOWN LINKS & IMAGES -->
+[python-shield]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/hector-nava-mba
