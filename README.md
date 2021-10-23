@@ -44,6 +44,10 @@
             <li><a href="#sets">Sets</a></li>
         </ul>
         <li><a href="#functions">Functions</a></li>
+        <li><a href="#objects-and-classes">Objects and Classes</a></li>
+        <ul>
+            <li><a href="#classes">Classes</a></li>
+        </ul>
     </ol>
 </details>
 <br/>
@@ -1461,6 +1465,78 @@ try:
 except:
     print('Need a position between 0 and', len(short_list)-1, 'but got', position)
 #Need a position between 0 and 2 but got 5
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Objects and Classes
+### Classes
+* Define a class with *class*
+    * To create a new object that no one has ever created before, you first define a class that indicates what it contains
+    * *pass* is the bare minimum to create an object
+```python
+class cat:
+    pass
+```
+* Initialization using *\_\_init\_\_()*
+    * *self* argument specifies that it refers to the individual object itself
+    * *\_\_init\_\_()* method is not required in every class definition; it's used to do anything that's needed to distinguish this object from others created from the same class
+```python
+class cat:
+    def __init__(self, name):
+        self.name = name
+
+furball = cat('Grumpy')
+```
+* The above code conducts the following:
+    * Looks up the definition of the *cat* class
+    * Instantiates (creates) a new object in memory
+    * Call the object's \_\_init\_\_() method, passing the newly created object as *self* and the other argument ('Grumpy') as *name*
+    * Stores the value of *name* in the object
+    * Returns the new object
+    * Attaches the variable *furball* to the object
+* *name* value passed is now saved with the object as an attribute
+```python
+print('Our latest addition: ', furball.name)
+#Our latest addition: Grumpy
+```
+* Methods for comparison:
+    * \_\_eq\_\_(self, other) -> self == other
+    * \_\_ne\_\_(self, other) -> self != other
+    * \_\_lt\_\_(self, other) -> self < other
+    * \_\_gt\_\_(self, other) -> self > other
+    * \_\_le\_\_(self, other) -> self <= other
+    * \_\_ge\_\_(self, other) -> self >= other
+* Methods for math:
+    * \_\_add\_\_(self, other) -> self + other
+    * \_\_sub\_\_(self, other) -> self - other
+    * \_\_mul\_\_(self, other) -> self * other
+    * \_\_floordiv\_\_(self, other) -> self // other
+    * \_\_truediv\_\_(self, other) -> self / other
+    * \_\_mod\_\_(self, other) -> self % other
+    * \_\_pow\_\_(self, other) -> self ** other
+* Other methods:
+    * \_\_str\_\_(self) -> str(self)
+    * \_\_repr\_\_(self) -> repr(self)
+        * echo variables to output
+    * \_\_len\_\_(self) -> len(self)
+```python
+class word:
+    def __init__(self, text):
+        self.text = text
+    def __eq__(self, word2):
+        return self.text.lower() == word2.text.lower()
+    def __str__(self):
+        return self.text
+    def __repr__(self):
+        return 'word("' + self.text + '")'
+
+first = word('ha')
+first   # uses __repr__
+#word("ha")
+
+print(first)    # uses __str__
+#ha
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
