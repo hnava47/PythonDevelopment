@@ -210,6 +210,8 @@ print(x)
 * cannot begin with digit
 * Python has reserved words (e.g. continue)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Libraries
 ```Python
 import webbrowser
@@ -219,12 +221,16 @@ from urllib.request import urlopen
 * Import all code from the Python standard library module called *webbrowser* and *json*
 * Import only the urlopen function from the standard library module *urllib.request*
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Comments
 * create comments with #
 ```python
 # this is a comment line
 ```
 * no multi-line comment within python
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## if, elif, else Comparisons
 * checks whether condition is a boolean **TRUE** value
@@ -244,6 +250,8 @@ else:
     print("statement is false")
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Comparison Operators
 * equality ==
 * inequality !=
@@ -252,10 +260,14 @@ else:
 * greater than >
 * greater than or equal >=
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Multiple Comparisons
 * and
 * or
 * not
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Considered FALSE
 * boolean FALSE
@@ -268,6 +280,8 @@ else:
 * empty dict {}
 * empty set set()
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Membership Operator In
 * using *in* to determine comparison within data object
 ```python
@@ -276,6 +290,8 @@ letter = 'o'
 letter in vowels
 #TRUE
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Text Strings
 * Enclosed single of double quotes
@@ -445,7 +461,13 @@ f'{name:10} says hello'
 f'{name:!>10} says hello'
 #'!!!!Hector says hello'
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## For and While Loops
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### While Loops
 * Continue as long as condition is met
 ```python
@@ -502,6 +524,9 @@ else: #no break called
     print('No even number found')
 #No even number found
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Iterate with For and In
 * Explicitly define iteration sequence using **for**
 ```python
@@ -552,7 +577,13 @@ for x in range(len(list)):
 #4
 #8
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Tuples and Lists
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Tuples
 * Create with commas and ()
 * *('Groucho')* is considered a string. Need to include comma to make it a tuple > ('Groucho',)
@@ -604,6 +635,9 @@ t1 += t2
 id(t1)
 #4408702160
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Lists
 * Create with []
     * Tracks objects by their order
@@ -874,8 +908,14 @@ for row, col in cells:
     * Tuples use less space
     * You can't clobber tuple items by mistake
     * You can use tuples as dictionary keys
-    * Named tuples can be a simple alternative to objects`
+    * Named tuples can be a simple alternative to objects
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Dictionaries and Sets
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Dictionaries
 * Specify unique *key* to associate with each *value*
 * Create with *{}*
@@ -1086,6 +1126,9 @@ vowel_counts = {letter: word.count(letter) for letter in set(word) if letter in 
 vowel_counts
 #{'o': 4, 'i': 1, 'a': 2, 'e': 1}
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Sets
 * Similar to a dictionary without the values. The elements of a set must be unique
     * Sets can use union and intersection operators
@@ -1230,6 +1273,9 @@ list_of_lists
 dict_of_lists = {'Marxes': marxes, 'Pythons': pythons, 'Stooges': stooges}
 #{'Marxes': ['Groucho', 'Chico', 'Harpo'], 'Pythons': ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin'], 'Stooges': ['Moe', 'Curly', 'Larry']}
 ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Functions
 * Can do two things with a function
     * *Define* it, with zero or more parameters
