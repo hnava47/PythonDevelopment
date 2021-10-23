@@ -21,4 +21,4 @@ def getJeBatch(url, username, password):
 
     return response.text
 
-print(getJeBatch(v.TestUrl, v.OraUsername, v.OraPassword))
+print(getJeBatch(v.Dev3Url, v.OraUsername, v.OraPassword))
