@@ -6,7 +6,7 @@
 <!-- Project Logo -->
 <br/>
 <div align="center">
-    <img src="./assets/images/readmelogo.png" alt="Logo" width="80" height="80">
+    <img src="Assets/images/readmelogo.png" alt="Logo" width="80" height="80">
     <h1 align="center">Python Development</h1>
 </div>
 
