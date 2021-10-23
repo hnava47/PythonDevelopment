@@ -6,7 +6,7 @@
 <!-- Project Logo -->
 <br/>
 <div align="center">
-    <img src="assets/images/readmelogo.png" alt="Logo" width="80" height="80">
+    <img src="./assets/images/readmelogo.png" alt="Logo" width="80" height="80">
     <h1 align="center">Python Development</h1>
 </div>
 
@@ -1323,7 +1323,7 @@ echo('Rumplestiltskin')
 * Positional and keyword arguments
     * Values are copied to their corresponding parameters in order
     * Need to remember the meaning of each position
-        * If we place the argument in the wrong place, the function will not work as intended
+        * If we place the positional argument in the wrong place, the function will not work as intended
     * If function called with both positional and keyword arguments, the positional arguments need to come first
 ```python
 def menu(wine, entree, dessert):
@@ -1341,6 +1341,130 @@ menu(entree='beef', dessert='bagel', wine='bordeaux')
 menu('frontenac', dessert='flan', entree='fish')
 #{'wine': 'frontenac', 'entree': 'fish', 'dessert': 'flan'}
 ```
+* Default parameter values
+    * Default used if the caller does not provide a corresponding argument
+    * *function(parameter=default):*
+    * Default parameter values are calculated when the function is defined, not when it is run
+```python
+def menu(wine, entree, dessert='pudding'):
+    return {'wine': wine, 'entree': entree, 'dessert': dessert}
+
+menu('chardonnay', 'chicken')
+#{'wine': 'chardonnay', 'entree': 'chicken', 'dessert': 'pudding'}
+
+menu('chardonnay', 'chicken', 'doughnut')
+#{'wine': 'chardonnay', 'entree': 'chicken', 'dessert': 'doughnut'}
+```
+* (*) groups or explodes a variable number of positional arguments into a single tuple of parameter value
+```python
+def print_args(*args):
+    print('Positional tuple: ', args)
+
+print_args(3, 2, 1, 'wait')
+#Positional tuples: (3, 2, 1, wait)
+
+arg = (3, 2, 1, 'wait')
+print_args(*args)
+#Positional tuples: (3, 2, 1, wait)
+```
+* (**) groups or explodes keyword arguments into a dictionary, where the argument names are the keys, and their values are the corresponding dictionary values
+```python
+def print_kwargs(**kwargs):
+    print('Keyword arguments: ', kwargs)
+
+print_kwargs(wine='merlot', entree='mutton', dessert='macaroon')
+#Keyword arguments: {'wine': 'merlot', 'entree': 'mutton', 'dessert': 'macaroon'}
+
+dicts = {'wine': 'merlot', 'entree': 'mutton', 'dessert': 'macaroon'}
+print_kwargs(**dicts)
+#Keyword arguments:  {'wine': 'merlot', 'entree': 'mutton', 'dessert': 'macaroon'}
+```
+* Argument order is:
+    * Required positional arguments
+    * Optional positional arguments (*args)
+    * Optional keyword arguments (**kwargs)
+
+* Keyword-only arguments
+    * Single (*) in the function definition means that the following parameters must be provided as named arguments if we don't want their default values
+```python
+def print_data(data, *, start=0, end=100):
+    for value in (data[start:end]):
+        print(value)
+
+data = ['a', 'b', 'c', 'd', 'e', 'f']
+print_data(data)
+#a
+#b
+#c
+#d
+#e
+#f
+
+print_date(data, start=4)
+#e
+#f
+
+print_data(data, end=2)
+#a
+#b
+```
+* If argument is mutable, its value can be changed from inside the function
+    * It's best practice to avoid this by either documenting that an argument may be changed or return the new value
+* Docstrings are used to provide documentation to a functions definition by including a string at the beginning of the function body
+```python
+def echo(anything):
+    'echo returns its input arguments'
+    return anything
+
+help(echo)
+#Help on function echo in module __main__:
+
+#echo(anything)
+#   echo returns its input arguments
+
+print(echo.__doc__)
+#echo returns its input arguments
+```
+* Functions can be assigned to variables, used as arguments to other functions, and returned from functions
+* Names that begin and end with two underscores (__) are reserved for use within Python, so they should not be used in variables
+    * *function.\_\_name\_\_* name of the function
+    * *function.\_\_doc\_\_* documentation string
+* Recursion - calling same function within itself
+```python
+def binSearch(arr, low, high, val):
+
+    if high >= low:
+        mid = (high + low) // 2
+
+        if arr[mid] == val:
+            return mid
+        elif arr[mid] > val:
+            return binSearch(arr, low, mid-1, val)
+        else:
+            return binSearch(arr, mid+1, high, val)
+
+    else:
+        return -1
+
+array = [2, 6, 9, 10, 15]
+searVal = 15
+
+print(binSearch(array, 0, len(array)-1, searVal))
+```
+* Async functions - functions can "give up control" rather than running to completion
+* Handle errors with *try* and *excep*
+```python
+short_list = [1, 2, 3]
+position = 5
+try:
+    short_list[position]
+except:
+    print('Need a position between 0 and', len(short_list)-1, 'but got', position)
+#Need a position between 0 and 2 but got 5
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [python-shield]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
