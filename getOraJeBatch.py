@@ -2,6 +2,7 @@
 
 import requests as r
 import base64 as b64
+import variables as v
 import json
 
 def getJeBatch(url, username, password):
@@ -19,3 +20,5 @@ def getJeBatch(url, username, password):
     response = r.request('GET', env, headers=headers, data=payload)
 
     return response.text
+
+print(getJeBatch(v.TestUrl, v.OraUsername, v.OraPassword))
