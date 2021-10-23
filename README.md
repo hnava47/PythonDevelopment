@@ -12,7 +12,7 @@
 
 <!-- Table of Contents -->
 <details>
-    <summary><span style="font-size: 25px;">Table of Contents</span></summary>
+    <summary>Table of Contents</summary>
     <ol>
         <li><a href="#basic-data-types">Basic Data Types</a></li>
         <li><a href="#integer-operators">Integer Operators</a></li>
