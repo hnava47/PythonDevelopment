@@ -13,7 +13,7 @@ def binSearch(arr, low, high, val):
     else:
         return -1
 
-array = [2, 6, 9, 10, 15]
-searVal = 15
+array = [1, 10, 14, 90]
+searVal = 10
 
 print(binSearch(array, 0, len(array)-1, searVal))
