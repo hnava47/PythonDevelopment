@@ -48,6 +48,7 @@
         <ul>
             <li><a href="#classes">Classes</a></li>
         </ul>
+        <li><a href="#testing">Testing</a></li>
     </ol>
 </details>
 <br/>
@@ -1538,6 +1539,47 @@ first   # uses __repr__
 print(first)    # uses __str__
 #ha
 ```
+
+## Testing
+* Test with *unittest*
+    * Standard library
+    * Decide what outcome you want from a certain input, submit the input to the function, and check whether it returned the expected results
+    * Expected results are called *assertion*
+```python
+# Initial file: cap.py
+
+def just_do_it(text):
+    return text.title()
+```
+```python
+# Test file: test_cap.py
+
+import unittest as ut
+import cap as c
+
+class TestCap(ut.TestCase):
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def test_one_word(self):
+        text = 'duck'
+        result = c.just_do_it(text)
+        self.assertEqual(result, 'Duck')
+
+    def test_multiple_words(self):
+        text = 'a veritable flock of ducks'
+        result = c.just_do_it(text)
+        self.assertEqual(result, 'A Veritable Flock Of Ducks')
+
+if __name__ == '__main__':
+    ut.main()
+```
+* *setUp()* method is called before each test method, and the *tearDown()* method is called after each
+    * Purpose to allocate and free external resources needed by the tests, such as a database connection or some test data
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
