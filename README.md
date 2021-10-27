@@ -49,6 +49,12 @@
             <li><a href="#classes">Classes</a></li>
         </ul>
         <li><a href="#testing">Testing</a></li>
+        <li><a href="#data-structures-and-algorithms">Data Structures and Algorithms</a></li>
+        <ul>
+            <li><a href="#complexity-analysis">Complexity Analysis</a></li>
+            <li><a href="#memory">Memory</a></li>
+            <li><a href="#big-o-notation">Big O Notation</a></li>
+        </ul>
     </ol>
 </details>
 <br/>
@@ -1544,7 +1550,12 @@ print(first)    # uses __str__
 * Test with *unittest*
     * Standard library
     * Decide what outcome you want from a certain input, submit the input to the function, and check whether it returned the expected results
+    * def setUp(self) -> test case setup can be repetitive, but we an factor set-up code by implement method setUp
     * Expected results are called *assertion*
+        * self.assertEqual()
+        * self.assertTrue()
+        * self.assertFalse()
+        * self.assertRaises()
 ```python
 # Initial file: cap.py
 
@@ -1583,7 +1594,91 @@ if __name__ == '__main__':
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Data Structures and Algorithms
+* Data structures are a way to organize and manage data. Data values put together with relationships between them
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Complexity Analysis
+* Complexity analysis -> process of determining how efficient an algorithm is. Complexity analysis usually involves finding both the time complexity and the space complexity of an algorithm
+* Time complexity -> A measure of how fast an algorithm runs, time complexity is a central concept in the field of algorithms and in coding interviews
+* Space complexity -> A measure of how much auxiliary memory an algorithm takes up, space complexity is a central concept in the field of algorithms and in coding interviews
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Memory
+* Bit -> short for binary digit, is a fundamental unit of information that represents a state with one of two values: 0 or 1
+* Byte -> a group of eight bits (e.g. 01101000). A single byte can represent up to 256 data values (2<sup>8</sup>). A byte can effectively represent all of the numbers between 0 and 255, inclusive, in binary format.
+The following represent the numbers 1, 2, 3, 4, 255 in binary format:
+    * 1: 00000001
+    * 2: 00000010
+    * 3: 00000011
+    * 4: 00000100
+    * 255: 11111111
+* Fixed-width integers -> An integer represented by a fixed amount of bits. For example, a 32-bit integer is an integer represented by 32 bits (4 bytes), and a 64-bit integer is an integer represented by 64 bits (8 bytes)
+* Memory -> foundational layer of computing, where all data is stored.
+    * Data stored in memory is stored in bytes and, by extension, bits
+    * Bytes in memory can "point" to other bytes in memory, so as to store references to other data
+    * The amount of memory that a machine has is bounded, making it valuable to limit how much memory an algorithm takes up
+    * Accessing a byte or a fixed number of bytes (like 4 bytes or 8 bytes in the case of 32-bit and 64-bit integers) is an elementary operation, which can be loosely treated as a single unit of operational work
+* Want algorithm to take up as few free memory slots as possible because memory is finite. One memory slot can hold 8-bits (i.e. 1 byte)
+* Each letter in a string is mapped to a number, which is then mapped to a bit for storage
+* Pointer -> a memory slot which stores the memory address of a separate memory slot. Just points to another memory slot with relevant piece of data
+* Machine can access memory slots very quickly
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Big O Notation
+* Notation used to describe the time and space complexity of algorithms
+* Measures the size and speed of the algorithm, as the size of the input increases
+    * **Measuring the change in size/speed with respect to the change in the size of the output**
+    * Variables used in Big O notation denote the sizes of inputs to algorithms
+    * n -> size of the input
+    * Following are examples of common complexities ordered from fastest to slowest:
+        * <strong>Constant</strong>: O(1)
+        * <strong>Logarithmic</strong>: O(log(n))
+        * <strong>Linear</strong>: O(n)
+        * <strong>Log-linear</strong>: O(nlog(n))
+        * <strong>Quadratic</strong>: O(n<sup>2</sup>)
+        * <strong>Cubic</strong>: O(n<sup>3</sup>)
+        * <strong>Exponential</strong>: O(2<sup>n</sup>)
+        * <strong>Factorial</strong>: O(n!)
+* Biggest factors that affect Big O are the number of steps and the number of iterations the program takes in repeating structures like a for loop
+* What is the Big O of your solution:
+    * Binary tree -> O(log n) > logarithmic complexity
+    * One for loop -> O(n) > linear complexity
+    * Sorting -> O(n log n) > log linear complexity
+    * Don't want anything slower than above three
+* For fixed-sized inputs, the complexity will be constant O(1)
+
+a = [...] } n
+
+* f<sub>1</sub>(a) => 1 + a[0]
+    * O(1) or constant time complexity (O of 1)
+    * As n increases, the speed of f<sub>1</sub>(a) remains constant
+* f<sub>2</sub>(a) => sum(a)
+    * O(n) or linear time complexity (O of n)
+    * As n increases, the speed of f<sub>2</sub>(a) increases linearly
+* f<sub>3</sub>(a) => pair(a) # 2 for loops together
+    * O(n<sup>2</sup>) or quadratic time complexity (O of n squared)
+    * Traverses through n inputs 2 times (2 for loops)
+* Only care about the very significant factors in our algorithm
+    * Meaning, if our program has all the above functions f<sub>4</sub>(a) = O(n<sup>2</sup> + n + 1), it would be simplified to f<sub>4</sub>(a) = O(n<sup>2</sup>)
+    * Even if we run f<sub>3</sub>(a) twice in the program, the function complexity f<sub>4</sub>(a) = O(2n<sup>2</sup> + n + 1), but the constant is insignificant, so the program complexity remains f<sub>4</sub>(a) = O(n<sup>2</sup>)
+
+* How to calculate Big O
+    1. Break your algorithm/function into individual operations
+    2. Calculate the Big 0 of each operation
+    3. Add up the Big O of each operation together
+    4. Remove the constants
+    5. Find the highest order term - this will be what we consider the Big O of our algorithm/function
+
+![Big-O][bigo-screenshot]
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [python-shield]: https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/hector-nava-mba
+[bigo-screenshot]: Assets/images/bigO.jpeg
