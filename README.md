@@ -1665,13 +1665,28 @@ a = [...] } n
 * Only care about the very significant factors in our algorithm
     * Meaning, if our program has all the above functions f<sub>4</sub>(a) = O(n<sup>2</sup> + n + 1), it would be simplified to f<sub>4</sub>(a) = O(n<sup>2</sup>)
     * Even if we run f<sub>3</sub>(a) twice in the program, the function complexity f<sub>4</sub>(a) = O(2n<sup>2</sup> + n + 1), but the constant is insignificant, so the program complexity remains f<sub>4</sub>(a) = O(n<sup>2</sup>)
-
 * How to calculate Big O
     1. Break your algorithm/function into individual operations
     2. Calculate the Big 0 of each operation
     3. Add up the Big O of each operation together
     4. Remove the constants
     5. Find the highest order term - this will be what we consider the Big O of our algorithm/function
+* Big O notation for data structures:
+    1. Array: Insert - O(1) Retrieve - O(1)
+    2. Linked List: Insert at head - O(1) Insert at tail - O(n) Retrieve - O(n)
+    3. Binary Search: Retrieve - O(n) Retrieve - O(n)
+    4. Dynamic Array: Retrieve - O(1) Retrieve - O(1)
+    5. Stack: Retrieve - O(1) Retrieve - O(1)
+    6. Hash Table: Retrieve - O(n) Retrieve - O(n)
+* Big O notation for sorting algorithms
+    1. Bubble Sort: Worst case - O(n<sup>2</sup>)
+    2. Insertion Sort: Worst case - O(n<sup>2</sup>)
+    3. Selection Sort: Worst case - O(n<sup>2</sup>)
+    4. Quick Sort: Worst case - O(n<sup>2</sup>)
+    5. Merge Sort: Worst case - O(n log(n))
+    6. Heap Sort: Worst case - O(n log(n))
+* Although worst case quick sort performance is quadratic O(n<sup>2</sup>), in practice quick sort is often used for sorting since its average case is logarithmic O(n log(n))
+* When taking into consideration two different inputs/arrays, you need to factor that additional input in the form of O(n + m). With multiple inputs, you would not drop the lowest if inputs are different (i.e. O(m<sup>2</sup> + n))
 
 ![Big-O][bigo-screenshot]
 
