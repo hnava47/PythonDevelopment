@@ -54,6 +54,8 @@
             <li><a href="#complexity-analysis">Complexity Analysis</a></li>
             <li><a href="#memory">Memory</a></li>
             <li><a href="#big-o-notation">Big O Notation</a></li>
+            <li><a href="#logarithms">Logarithms</a></li>
+            <li><a href="#arrays">Arrays</a></li>
         </ul>
     </ol>
 </details>
@@ -1689,6 +1691,35 @@ a = [...] } n
 * When taking into consideration two different inputs/arrays, you need to factor that additional input in the form of O(n + m). With multiple inputs, you would not drop the lowest if inputs are different (i.e. O(m<sup>2</sup> + n))
 
 ![Big-O][bigo-screenshot]
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Logarithms
+* log<sub>b</sub>(x) = y if and only if (iif) b<sup>y</sup> = x
+* Usage always implies a logarithm of base 2 (log(n) = y iif 2<sup>y</sup> = n) - _binary logarithm_
+    * If an algorithm has a logarithmic time complexity of O(log(n)), where n is the size of the input, then whenever the algorithm's iput doubles in size (i.e. whenever n doubles), the number of operations needed to complete the algorithm only increases by one unit
+    * An algorithm with linear complexity would see its number of operations double if its input size doubled
+* If I'm doubling my input, is there only one additional operation performed?
+* Am I eliminating half of the input at every step of the function?
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Arrays
+* A linear collection of data values that are accessible at numbered indices, starting at index 0
+* The following are an array's standard operations and their corresponding time complexities:
+    * __Accessing a value at a given index__: O(1)
+    * __Updating a value at a given index__: O(1)
+    * __Inserting a value at the beginning__: O(n)
+    * __Inserting a value in the middle__: O(n)
+    * __Inserting a value at the end__:
+        * amortized O(1) when dealing with a __dynamic array__ (lot of popular progamming languages like JavaScript and Python implement arrays as dynamic arrays)
+        * O(n) when dealing with a __static array__
+    * __Removing a value at the beginning__: O(n)
+    * __Removing a value in the middle__: O(n)
+    * __Removing a value at the end__: O(1)
+    * __Copying the array__: O(n)
+* _Static Array_: implementation of an array that allocates a fixed amount of memory to be used for storing the array's values. Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value (linear-time complexity)
+* _Dynamic Array_: implementation of an array that preemptively allocates double the amount of memory needed to store the array's values. Appending values to the array is a constant-time operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated for it. This implementation leads to an amortized constant-time insert-at-end complexity
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
