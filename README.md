@@ -1706,20 +1706,37 @@ a = [...] } n
 
 ### Arrays
 * A linear collection of data values that are accessible at numbered indices, starting at index 0
+* Python refers to arrays as _lists_
 * The following are an array's standard operations and their corresponding time complexities:
     * __Accessing a value at a given index__: O(1)
     * __Updating a value at a given index__: O(1)
     * __Inserting a value at the beginning__: O(n)
     * __Inserting a value in the middle__: O(n)
     * __Inserting a value at the end__:
-        * amortized O(1) when dealing with a __dynamic array__ (lot of popular progamming languages like JavaScript and Python implement arrays as dynamic arrays)
+        * amortized O(1) when dealing with a __dynamic array__ (lot of popular programming languages like JavaScript and Python implement arrays as dynamic arrays)
         * O(n) when dealing with a __static array__
     * __Removing a value at the beginning__: O(n)
     * __Removing a value in the middle__: O(n)
     * __Removing a value at the end__: O(1)
     * __Copying the array__: O(n)
 * _Static Array_: implementation of an array that allocates a fixed amount of memory to be used for storing the array's values. Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value (linear-time complexity)
-* _Dynamic Array_: implementation of an array that preemptively allocates double the amount of memory needed to store the array's values. Appending values to the array is a constant-time operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated for it. This implementation leads to an amortized constant-time insert-at-end complexity
+* _Dynamic Array_ (can change in size): implementation of an array that preemptively allocates double the amount of memory needed to store the array's values. Appending values to the array is a constant-time operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated for it. This implementation leads to an amortized constant-time insert-at-end complexity
+* [1, 2, 3]
+    * assuming 64-bit integers, each integer requires 8 bytes of memory (8 memory slots) and they need to be stored back-to-back. Therefore, machine needs to find 24 slots of free memory next to each other (assuming array is static)
+    * get (return a value at an index)=> O(1) space and time (ST)
+    * set (overriding a value at specific index) => O(1) ST
+    * init (create and store array) => O(n) ST
+    * traverse (for loop) => O(n) T, O(1) S
+    * copy (keeping both arrays) => O(n) ST
+    * _static array_ insert at the end of array => O(n) T, O(1) S
+        * Needs to adjust memory to make room for new value. Will copy array and allocate enough memory to include additional value
+        * Removing old array and creating new array, so space complexity is constant
+    * _dynamic array_ insert at the end of array => O(1) TS
+        * Dynamic array stores arrays with double required memory, therefore inserting a new value performs at constant complexity
+        * Once all memory is used, the operating system will copy, and allocate double the memory again
+        * Why is time complexity O(n) for inserting in the middle, since it only affects a portion of the array? Although it may only affect a portion, it's still a constant value (i.e. O(.25n)), which still simplifies to O(n)
+    * pop (removing last value) => O(1) ST
+    * pop (removing first or middle value) => O(n) T, O(1) S
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
