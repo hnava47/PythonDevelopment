@@ -1951,14 +1951,60 @@ print(ls)
 * Strings are stored in memory as arrays of integers, where each character in a given string is mapped to an integer via some character-encoding standard like __ASCII__
 * Strings are __immutable__, meaning that they can't be edited after creation
 * Simple operations like appending a character to a string are more expensive than they might appear
+* The following are string common operations and their corresponding time complexities:
+    * traverse => O(n) T, O(1) S
+    * copying => O(n) ST
+    * get => O(1) ST
+    * Adding two strings together => O(n + m) where n and m are different strings
+* Best practice when having to manipulate strings is to convert the string to an array and manipulate the array by appending in constant time, then concatenate. Lists are mutable, and therefore isn't recreated when a new character is added
 ```python
-string = "this is a sting"
+string = 'this is a string'
+string = list(string)
+# ['t', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 's', 't', 'r', 'i', 'n', 'g']
+
+# O(1)
+string.append('x')
+
+# O(1)
+newString = ''
+
+# O(n)
+for value in string:
+    newString += value
+
+print(newString)
+# this is a stringx
+```
+* Below operation has a time complexity of __O(n<sup>2</sup>)__ where n is the length of _string_, because each addition of a character to _newString_ creates an entirely new string and is itself an __O(n)__ operation
+```python
+string = "this is a string"
 newString = ""
 
 for character in string:
     newString += character
 ```
-* Above operation has a time complexity of __O(n<sup>2</sup>)__ where n is the length of _string_, because each addition of a character to _newString_ creates an entirely new string and is itself an __O(n)__ operation
+### Graphs
+* __Graph__: A collection of nodes or values called _vertices_ that might be related; relations between vertices are called _edges_
+    * Examples: social network where vertices are users and whose edges are friendships between users, or a city map whose vertices are locations in the city and whose edges are roads between the locations
+* __Graph Cycle__: Cycle occurs in a graph when three or more vertices in the graph are connected so as to form a closed loop
+* __Acyclic Graph__: A graph that has no cycles
+* __Cyclic Graph__: A graph that has at least one cycle
+* __Directed Graph__: A graph whose edges are directed, meaning they can only be traversed in one direction, which is specified
+    * In the case of a directed graph, the graph is:
+        * strongly connected if there are bidirectional connections between the vertices of every pair of vertices (i.e. for every vertex-pair (u, v) you can reach v and u and u from v)
+        * weakly connected if there are connections (but not necessarily bidirectional ones) between the vertices of every pair of vertices
+    * Example: a graph of airports and flights would likely be directed, since a flight specifically goes from one airport to another (i.e. it has a direction), without necessarily implying the presence of a flight in the opposite direction
+* __Undirected Graph__: A graph whose edges are undirected, meaning that they can be be traversed in both directions
+    * Example: a graph of friends would likely be undirected, since friendship is, by nature, bidirectional
+* __Connected Graph__: A graph is connected if for every pair of vertices in the graph, there's a path of one or more edges connecting the given vertices
+```python
+# Space -> O(v + e)
+# Time of traversal -> O(v + e)
+# v -> number of vertices
+# e -> number of edges
+graphDict = {1: [2, 4, 8, 9], 2: [5, 7], 3: [6], 4: [11], 5: [7]}
+# {vertices: [list of edges]}
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
