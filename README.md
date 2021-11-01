@@ -59,6 +59,7 @@
             <li><a href="#linked-lists">Linked Lists</a></li>
             <li><a href="#stacks-and-queues">Stacks and Queues</a></li>
             <li><a href="#graphs">Graphs</a></li>
+            <li><a href="#trees">Trees</a></li>
         </ul>
     </ol>
 </details>
@@ -2005,6 +2006,53 @@ for character in string:
 # e -> number of edges
 graphDict = {1: [2, 4, 8, 9], 2: [5, 7], 3: [6], 4: [11], 5: [7]}
 # {vertices: [list of edges]}
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Trees
+* A data structure that consists of nodes, each with some value and pointers to child-nodes, which recursively form subtrees in the tree
+* First node of the tree is referred to as the __root__ of the tree, while the nodes at the bottom of a tree (the nodes with no child-nodes) are referred to as __leaf nodes__ or simply __leaves__
+* The paths between the root of a tree and its leaves are called __branches__, and the __height__ of a tree is the length of its longest branch
+* __Depth__ of a tree node is its distance from its tree's root; this is also known as the node's __level__ in the tree
+* A tree is effectively a graph that's connected, directed, and acyclic, that has an explicit root node, and whose nodes all have a single __parent__ (except for the root node, which effectively has no parent)
+#### Binary tree
+* A tree whose nodes have up to two child-nodes
+* Structure of a binary tree is such that many of its operations have a logarithmic O(log(n)) time complexity
+#### K-ary tree
+* A tree whose nodes have up to __k__ child-nodes. A binary tree is a k-ary tree where __k == 2__
+#### Perfect binary tree
+* A binary tree whose interior nodes all have two child-nodes and whose leaf nodes all have the same __depth__
+#### Complete binary tree
+* A binary tree that's _almost_ perfect; its interior nodes all have two child-nodes, but its leaf nodes don't necessarily all have the same __depth__. Furthermore, the nodes in the last level of a complete binary tree are as far left as possible
+#### Balanced binary tree
+* A binary tree whose nodes all have left and right __subtrees__ whose __heights__ differ by no more than one
+* A balanced tree is such that the logarithmic O(log(n)) time complexity of its operations is maintained
+#### Full binary tree
+* A binary tree whose nodes all have either two child-nodes or zero-child nodes
+* Conducting binary search (bst > binary search tree), which performs at a O(log(n)) time complexity:
+```python
+def binSearch(arr, low, high, val):
+
+    if high >= low:
+        mid = (high + low) // 2
+
+        if arr[mid] == val:
+            return mid
+        elif arr[mid] > val:
+            return binSearch(arr, low, mid-1, val)
+        else:
+            return binSearch(arr, mid+1, high, val)
+
+    else:
+        # value provided is not within array
+        return -1
+
+# array is required to be sorted
+array = [1, 10, 14, 90]
+searVal = 10
+
+print(binSearch(array, 0, len(array)-1, searVal))
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
