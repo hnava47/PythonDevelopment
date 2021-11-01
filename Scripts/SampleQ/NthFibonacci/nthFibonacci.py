@@ -1,3 +1,4 @@
+# O(n) time | O(1) space
 def getNthFib(n):
     lastTwo = [0, 1]
     counter = 3
