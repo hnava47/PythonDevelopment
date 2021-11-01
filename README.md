@@ -56,6 +56,7 @@
             <li><a href="#big-o-notation">Big O Notation</a></li>
             <li><a href="#logarithms">Logarithms</a></li>
             <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#linked-lists">Linked Lists</a></li>
         </ul>
     </ol>
 </details>
@@ -1737,6 +1738,161 @@ a = [...] } n
         * Why is time complexity O(n) for inserting in the middle, since it only affects a portion of the array? Although it may only affect a portion, it's still a constant value (i.e. O(.25n)), which still simplifies to O(n)
     * pop (removing last value) => O(1) ST
     * pop (removing first or middle value) => O(n) T, O(1) S
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Linked Lists
+* Differs from arrays in how the data is stored in memory
+    * Arrays (lists) require storage in slots back-to-back. Meaning they are store in memory slots which have to be next to each other (4 64-bit integers in an array requires 32 bytes/slots of free memory back-to-back)
+    * Linked lists do __NOT__ require back-to-back memory slots. Operating system will store values anywhere in memory. Values are connected together through pointers which point to the next node in the list (by storing the next node's memory address)
+    * Linked lists memory is stored together in groups of two. One stores the value, the other stores the pointer
+* 3 -> 1 -> 4 -> 2 -> null
+    * get => O(i) T, O(1) S
+    * set => O(i) T, O(1) S
+    * init => O(n) ST
+    * copy => O(n) ST
+    * Traverse => O(n) T, O(1) S
+    * Insert/delete (depends on head, tail, or in the middle)
+* Python creates linked lists through custom class method. No standard function to initialize
+#### Singly Linked List
+* A data structure that consists of nodes, each with some value and a pointer to the next node in the linked list
+* Linked list node's value and next node are typically store in _value_ and _next_ properties, respectively
+* First node in a linked list is referred to as the __head__ of the linked list, while the last node in the linked list, whose _next_ property points to the _null_ value, is known as the __tail__ of the linked list
+* Example:
+```
+0 -> 1 -> 2 -> 3 -> 4 -> 5 -> null
+```
+* Singly linked list typically exposes its head to its user for easy access
+* Finding a node in a singly linked list involves traversing through all of the nodes leading up to the node in question (as opposed to instant access with an array)
+* Adding or removing nodes simply involves _next_ pointers
+* Following are a singly linked list's standard operations and their corresponding time complexities:
+    * __Accessing the head__: O(1)
+    * __Accessing the tail__: O(n)
+    * __Accessing a middle node__: O(n)
+    * __Inserting/removing the head__: O(1)
+    * __Inserting/removing the tail__: O(n) to access + O(1)
+    * __Inserting/removing a middle node__: O(n) to access + O(1)
+    * __Searching for a value__: O(n)
+
+```python
+# Node class
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.next = None
+
+    def set_next(self, node):
+        self.next = node
+
+    def __repr__(self):
+        return self.val
+```
+```python
+# Linked list constructor
+class LinkedList:
+    def __init__(self):
+        self.head = None
+```
+```python
+# Iterating over the list
+def __iter__(self):
+        node = self.head
+        while node is not None:
+            yield node
+            node = node.next
+```
+```python
+# Adding to the linked list
+def add_to_tail(self, node):
+        if self.head == None:
+            self.head = node
+            return
+        for current_node in self:
+            pass
+        current_node.set_next(node)
+```
+```python
+# Removing from the linked list
+def remove_from_head(self):
+        if self.head == None:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        return temp
+```
+```python
+# Print the linked list
+def __repr__(self):
+        nodes = []
+        for node in self:
+            nodes.append(node.val)
+        return " -> ".join(nodes)
+```
+```python
+# Using the linked list
+linked_list = LinkedList()
+linked_list.add_to_tail(Node("1"))
+linked_list.add_to_tail(Node("4"))
+linked_list.add_to_tail(Node("6"))
+print("ll:", linked_list)
+first = linked_list.remove_from_head()
+print("removed:", first)
+print("ll:", linked_list)
+```
+#### Doubly Linked List
+* Each node in a double linked list also has a pointer to the previous node in the linked list
+* Previous node is typically stored in a _prev_ property
+* Both _next_ (__tail__) and _prev_ (__head__) properties points to _null_
+```
+null <- 0 <-> 1 <-> 2 <-> 3 <-> 4 <-> 5 -> null
+```
+* Exposes both its head and tail to user, as opposed to just its head in the case of singly linked list
+* Following are a doubly linked list's standard operations and their corresponding time complexities:
+    * __Accessing the head__: O(1)
+    * __Accessing the tail__: O(1)<sup>* differs from singly linked list</sup>
+    * __Accessing a middle node__: O(n)
+    * __Inserting/removing the head__: O(1)
+    * __Inserting/removing the tail__: O(1)<sup>* differs from singly linked list</sup>
+    * __Inserting/removing a middle node__: O(n) to access + O(1)
+    * __Searching for a value__: O(n)
+#### Circular Linked List
+* A linked list that has no clear head or tail, because its "tail" points to its "head", effectively forming a closed circle
+* A circular linked list can be either a singly circular linked list or a doubly circular linked list
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Hash Tables
+* Data structure that provides fast insertion, deletion, and lookup of key/value pairs
+* Python creates hash tables through standard _dictionaries_
+* Uses a dynamic array of linked lists to efficiently store key/value pairs
+* Similar to arrays, looking up keys/indexes operate at constant O(1) complexity (on average). However, hash tables allow for non-integer keys
+* Behind the scenes, there is a hashing functions which transforms the key into an index
+    * If two keys map to the same integer index (collide), linked list leveraged to reference correct key/value pair
+    * Example: (value2, key2) -> (value3, key3) -> (value4, key4)
+    * This collision causes O(n) time complexity
+* When inserting a key/value pair, a hash function first maps the key, which is typically a string, to an integer value and, by extension, to an index in the underlying dynamic array
+* Value associated with the key is added to the linked list stored at the index in they dynamic array, and a reference to the key is also stored with the value
+* Hash tables rely on highly optimized hash functions to minimize the number of collisions that occur when storing values: cases where two keys map to the same index
+* Below is an example of what a hash table might look like under the hood:
+```
+[
+    0: (value1, key1) -> null
+    1: (value2, key2) -> (value3, key3) -> (value4, key4)
+    2: (value5, key5) -> null
+    3: (value6, key6) -> null
+    4: null
+    5. (value7, key7) -> (value8, key8)
+    6: (value9, key9) -> null
+]
+```
+* Keys key2, key3, and key4 collided by all being hashed to 1, and the keys key7 and key8 collided by both being hashed to 5
+* The following are a hash table's standard operations and their corresponding time complexities:
+    * Inserting a key/value pair: O(1) on average; O(n) in the worst case
+    * Removing a key/value pair: O(1) on average; O(n) in the worst case
+    * Looking up a key: O(1) on average; O(n) in the worst case
+* The worst-case linear-time operations occur when a hash table experiences a lot of collisions, leading to long linked lists internally, which takes O(n) time to traverse
+* We typically assume that the hash functions employed by hash tables are so optimized that collisions are extremely rare and constant-time operations are all but guaranteed
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
