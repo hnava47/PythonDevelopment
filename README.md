@@ -57,6 +57,7 @@
             <li><a href="#logarithms">Logarithms</a></li>
             <li><a href="#arrays">Arrays</a></li>
             <li><a href="#linked-lists">Linked Lists</a></li>
+            <li><a href="#stacks-and-queues">Stacks and Queues</a></li>
         </ul>
     </ol>
 </details>
@@ -1893,6 +1894,71 @@ null <- 0 <-> 1 <-> 2 <-> 3 <-> 4 <-> 5 -> null
     * Looking up a key: O(1) on average; O(n) in the worst case
 * The worst-case linear-time operations occur when a hash table experiences a lot of collisions, leading to long linked lists internally, which takes O(n) time to traverse
 * We typically assume that the hash functions employed by hash tables are so optimized that collisions are extremely rare and constant-time operations are all but guaranteed
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Stacks and Queues
+#### Stack
+* An array-like data structure whose elements follow the __LIFO__ rule: Last In, First Out
+* A stack is often compared to a stack of books on a table: the last book that's placed on the stack of books is the first one that's taken off the stack
+* The following are the stack's standard operations and their corresponding time complexities:
+    * __Pushing an element onto a stack__: O(1) ST
+    * __Popping an element off the stack__: O(1) ST
+    * __Peeking at the element on the top of the stack__: O(1) ST
+    * __Searching for an element in the stack__: O(n) T, O(1) S
+* A stack is typically implemented with a dynamic array or with a singly linked list
+```python
+ls = [1, 2, 3, 4]
+
+# Last in
+ls.append(5)
+print(ls)
+# [1, 2, 3, 4, 5]
+
+# First out
+ls.pop()
+# 5
+print(ls)
+# [1, 2, 3, 4]
+```
+#### Queue
+* An array-like data structure whose elements follow the __FIFO__ rule: First In, First Out
+* A queue is often compared to a group of people standing in line to purchase items at a store: the first person to get in line is the first one to purchase items and to get out of the queue
+* The following are the queue's standard operations and their corresponding time complexities:
+    * __Enqueuing an element into the queue__: O(1) ST
+    * __Dequeueing an element out of the queue__: O(1) ST
+    * __Peeking at the element at the front of the queue__: O(1) ST
+    * __Searching for an element in the queue__: O(n) T, O(1) S
+* A queue is typically implemented with a doubly linked list
+```python
+ls = [1, 2, 3, 4]
+
+# First in
+ls.append(5)
+print(ls)
+# [1, 2, 3, 4, 5]
+
+# First Out
+ls.pop(0)
+# 1
+print(ls)
+# [2, 3, 4, 5]
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Strings
+* Strings are stored in memory as arrays of integers, where each character in a given string is mapped to an integer via some character-encoding standard like __ASCII__
+* Strings are __immutable__, meaning that they can't be edited after creation
+* Simple operations like appending a character to a string are more expensive than they might appear
+```python
+string = "this is a sting"
+newString = ""
+
+for character in string:
+    newString += character
+```
+* Above operation has a time complexity of __O(n<sup>2</sup>)__ where n is the length of _string_, because each addition of a character to _newString_ creates an entirely new string and is itself an __O(n)__ operation
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
