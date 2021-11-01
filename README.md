@@ -58,6 +58,7 @@
             <li><a href="#arrays">Arrays</a></li>
             <li><a href="#linked-lists">Linked Lists</a></li>
             <li><a href="#stacks-and-queues">Stacks and Queues</a></li>
+            <li><a href="#graphs">Graphs</a></li>
         </ul>
     </ol>
 </details>
