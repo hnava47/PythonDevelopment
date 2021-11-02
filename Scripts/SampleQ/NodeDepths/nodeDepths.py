@@ -1,3 +1,4 @@
+# O(n) time | O(h) space - where n is the number of nodes in the Binary Tree and h is the height of the Binary Tree
 def nodeDepths(root):
     sumOfDepths = 0
     stack = [{"node": root, "depth": 0}]
